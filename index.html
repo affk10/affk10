@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>效率主页</title>
+    <style>
+        /* 1. 基础布局与背景 */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5; /* 浅灰色背景，模仿干净桌面 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        /* 2. 核心标题和搜索框区域 */
+        .header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+        .slogan {
+            color: #666;
+            font-size: 1.1em;
+        }
+        .search-box {
+            margin-top: 20px;
+        }
+        .search-box input {
+            padding: 10px 15px;
+            width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-box input:focus {
+            border-color: #007bff;
+        }
+        
+        /* 3. 链接图标网格布局 */
+        .icon-grid {
+            display: grid;
+            /* 4列布局，每列宽度固定 */
+            grid-template-columns: repeat(4, 100px); 
+            gap: 25px; /* 图标间距 */
+            padding: 20px;
+            background: #fff; /* 背景板 */
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 4. 单个图标样式 */
+        .icon-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s;
+        }
+        .icon-link:hover {
+            transform: translateY(-5px); /* 悬停上浮效果 */
+        }
+
+        /* 5. 图标的视觉样式 (彩色圆角方块) */
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2em;
+            margin-bottom: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: white; /* 符号颜色 */
+        }
+        
+        /* 6. 图标名称 */
+        .icon-name {
+            font-size: 0.9em;
+            text-align: center;
+            white-space: nowrap; /* 不换行 */
+        }
+
+        /* 7. 定制化图标颜色 (可选，让它更像您的桌面) */
+        .color-blue { background-color: #007bff; }
+        .color-orange { background-color: #ff9800; }
+        .color-green { background-color: #4CAF50; }
+        .color-red { background-color: #f44336; }
+        .color-purple { background-color: #9c27b0; }
+        .color-teal { background-color: #009688; }
+        .color-yellow { background-color: #ffeb3b; color: #333; } /* 黄色文字变黑 */
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>网站</h1>
+        
+        <form class="search-box" action="https://www.baidu.com/s" method="get" target="_blank">
+            <input type="text" name="wd" placeholder="在百度搜索..." required>
+        </form>
+    </div>
+
+    <div class="icon-grid">
+        
+        <a href="http://www.affk10.cn:5160" class="icon-link" target="_blank">
+    <div class="icon-box"> 
+        <img src="E:\网站\img\bot控制台.png"  style="width: 100%; height: 100%; border-radius: 15px;">
+    </div>
+    <span class="icon-name">bot控制台</span>
+        </a>
+
+        <a href="http://www.affk10.cn:7890" class="icon-link" target="_blank">
+    <div class="icon-box"> 
+        <img src="E:\网站\img\ab.png"  style="width: 100%; height: 100%; border-radius: 15px;">
+    </div>
+    <span class="icon-name">ab</span>
+        </a>
+
+        <a href="http://www.affk10.cn:808" class="icon-link" target="_blank">
+    <div class="icon-box"> 
+        <img src="E:\网站\img\qbittorrent32.png"  style="width: 100%; height: 100%; border-radius: 15px;">
+    </div>
+    <span class="icon-name">qb</span>
+        </a>
+
+        <a href="http://www.affk10.cn:9898" class="icon-link" target="_blank">
+    <div class="icon-box"> 
+        <img src="E:\网站\img\bt反吸血.png"  style="width: 100%; height: 100%; border-radius: 15px;">
+    </div>
+    <span class="icon-name">bt反吸血</span>
+        </a>
+
+        <a href="http://www.affk10.cn:5212" class="icon-link" target="_blank">
+    <div class="icon-box"> 
+        <img src="E:\网站\img\网盘.png"  style="width: 100%; height: 100%; border-radius: 15px;">
+    </div>
+    <span class="icon-name">网盘</span>
+        </a>
+
+        <a href="http://www.affk10.cn:3002" class="icon-link" target="_blank">
+    <div class="icon-box"> 
+        <img src="E:\网站\img\测速.png"  style="width: 100%; height: 100%; border-radius: 15px;">
+    </div>
+    <span class="icon-name">测速</span>
+        </a>
+
+        <a href="http://www.affk10.cn:8096" class="icon-link" target="_blank">
+    <div class="icon-box"> 
+        <img src="E:\网站\img\emby.png"  style="width: 100%; height: 100%; border-radius: 15px;">
+    </div>
+    <span class="icon-name">emby</span>
+        </a>
+        
+
+    </div>
+</body>
+</html>
