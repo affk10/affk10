@@ -107,7 +107,31 @@
         .color-purple { background-color: #9c27b0; }
         .color-teal { background-color: #009688; }
         .color-yellow { background-color: #ffeb3b; color: #333; } /* 黄色文字变黑 */
-
+        /* 输入框背景变深色半透明 */
+        background-color: rgba(0, 0, 0, 0.4); 
+        color: #ffffff;
+        padding: 12px 20px;
+        width: 450px; /* 稍微加宽 */
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 30px;
+}
+.search-box input:focus {
+        /* 聚焦时边框颜色 */
+        border-color: #00bfff; /* 浅蓝色或天蓝色 */
+        box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+        /* 提示文字颜色调整 */
+.search-box input::placeholder {
+        color: #cccccc;
+}
+.icon-grid {
+        /* 将背景从纯白色 #fff 改为半透明的白色或深色 */
+        background: rgba(255, 255, 255, 0.2); /* 20% 透明度的白色 */
+        backdrop-filter: blur(5px);           /* (可选) 增加毛玻璃效果，让背景模糊 */
+        /* 保持原来的圆角和阴影 */
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+}
     </style>
 </head>
 <body>
@@ -175,6 +199,7 @@
 </body>
 
 </html>
+
 
 
 
