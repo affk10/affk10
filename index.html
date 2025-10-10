@@ -132,6 +132,56 @@
         border-radius: 15px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
 }
+/* 媒体查询：当屏幕宽度小于 650 像素时应用以下样式 */
+@media (max-width: 650px) {
+    /* 1. 调整图标网格为 3 列 */
+    .icon-grid {
+        /* 将列数从 4 列改为 3 列，每列自动调整大小 */
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 25px; /* 减小间距 */
+        padding: 20px; /* 减小内边距 */
+        margin-top: 20px;
+    }
+    /* 2. 调整图标容器和图片大小 */
+    .icon-box {
+        width: 70px; /* 减小容器大小 */
+        height: 70px; 
+    }
+    /* 3. 调整图标名称字体大小 */
+    .icon-name {
+        font-size: 0.8em; /* 减小字体 */
+    }
+    /* 4. 减小主标题和口号的字体大小 */
+    .header h1 {
+        font-size: 1.8em;
+    }
+    .header .slogan {
+        font-size: 1em;
+    }
+}
+/* 媒体查询：应用于移动设备 */
+@media (max-width: 650px) {
+    /* ... (上面网格代码) ... */
+    /* 调整搜索框宽度，使其不超过屏幕宽度的 90% */
+    .search-box input {
+        width: 90%; 
+        max-width: 400px; /* 确保在平板上也不会太宽 */
+        padding: 12px 20px;
+        font-size: 0.9em;
+    }
+}
+/* 媒体查询：仅在大屏幕上保留复杂的悬停效果 */
+@media (min-width: 651px) {
+    .icon-link:hover {
+        /* 保留你喜欢的悬停效果，例如： */
+        transform: translateY(-8px) scale(1.05);
+        box-shadow: 0 5px 15px rgba(0, 191, 255, 0.4); 
+    }
+}
+/* 统一移除手机上可能出现的蓝色点击轮廓 */
+.icon-link:focus, .icon-link:active {
+    outline: none;
+}
     </style>
 </head>
 <body>
@@ -199,6 +249,7 @@
 </body>
 
 </html>
+
 
 
 
