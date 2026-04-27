@@ -1,251 +1,209 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中转站</title>
-    <style>
-        /* 1. 基础布局与背景 */
-        body {
-            /* 假设你的背景图片文件名为 wallpaper.jpg */
-           background-image: url('img/wallpaper.jpg'); 
-           background-size: cover;       /* 确保图片覆盖整个屏幕 */
-           background-position: center;  /* 图片居中 */
-           background-attachment: fixed; /* 背景不随滚动条移动 */
-    
-    /* 由于背景变深，字体颜色改为浅色 */
-           color: #f0f0f0; 
-    /* 其他布局属性保持不变 */
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-           padding: 30px;
-           min-height: 100vh;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中转站</title>
+    <style>
+        /* 1. 基础布局与背景 */
+        body {
+            background-image: url('img/wallpaper.jpg'); 
+            background-size: cover;       
+            background-position: center;  
+            background-attachment: fixed; 
+            color: #f0f0f0; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            min-height: 100vh;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
 
-        /* 2. 核心标题和搜索框区域 */
-        .header {
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        h1 {
-            color: #333;
-            font-size: 2.5em;
-            margin-bottom: 5px;
-        }
-        .slogan {
-            color: #666;
-            font-size: 1.1em;
-        }
-        .search-box {
-            margin-top: 20px;
-        }
-        .search-box input {
-            padding: 10px 15px;
-            width: 400px;
-            border: 1px solid #ddd;
-            border-radius: 25px;
-            font-size: 1em;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-        .search-box input:focus {
-            border-color: #007bff;
-        }
-        
-        /* 3. 链接图标网格布局 */
-        .icon-grid {
-            display: grid;
-            /* 4列布局，每列宽度固定 */
-            grid-template-columns: repeat(4, 100px); 
-            gap: 25px; /* 图标间距 */
-            padding: 20px;
-            background: #fff; /* 背景板 */
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
+        /* 2. 核心标题和搜索框区域 */
+        .header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        h1 {
+            color: #ffffff; /* 配合深色背景改为白色 */
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        .search-box {
+            margin-top: 20px;
+        }
+        .search-box input {
+            background-color: rgba(0, 0, 0, 0.4); 
+            color: #ffffff;
+            padding: 12px 25px;
+            width: 450px;
+            max-width: 85vw;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            font-size: 1em;
+            outline: none;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+        .search-box input:focus {
+            border-color: #00bfff;
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .search-box input::placeholder {
+            color: #cccccc;
+        }
+        
+        /* 3. 链接图标网格布局 */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 100px); 
+            gap: 25px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.15); 
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-        /* 4. 单个图标样式 */
-        .icon-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #333;
-            transition: transform 0.2s;
-        }
-        .icon-link:hover {
-            transform: translateY(-5px); /* 悬停上浮效果 */
-        }
+        /* 4. 单个图标样式 */
+        .icon-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            transition: transform 0.2s;
+        }
 
-        /* 5. 图标的视觉样式 (彩色圆角方块) */
-        .icon-box {
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2em;
-            margin-bottom: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            color: white; /* 符号颜色 */
-        }
-        
-        /* 6. 图标名称 */
-        .icon-name {
-            font-size: 0.9em;
-            text-align: center;
-            white-space: nowrap; /* 不换行 */
-        }
+        /* 5. 图标的视觉样式 */
+        .icon-box {
+            width: 65px;
+            height: 65px;
+            border-radius: 16px;
+            overflow: hidden; /* 确保图片不超出圆角 */
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .icon-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 自动裁剪填充 */
+        }
+        
+        /* 6. 图标名称 */
+        .icon-name {
+            font-size: 0.85em;
+            text-align: center;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+        }
 
-        /* 7. 定制化图标颜色 (可选，让它更像您的桌面) */
-        .color-blue { background-color: #007bff; }
-        .color-orange { background-color: #ff9800; }
-        .color-green { background-color: #4CAF50; }
-        .color-red { background-color: #f44336; }
-        .color-purple { background-color: #9c27b0; }
-        .color-teal { background-color: #009688; }
-        .color-yellow { background-color: #ffeb3b; color: #333; } /* 黄色文字变黑 */
-        /* 输入框背景变深色半透明 */
-        background-color: rgba(0, 0, 0, 0.4); 
-        color: #ffffff;
-        padding: 12px 20px;
-        width: 450px; /* 稍微加宽 */
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 30px;
-}
-.search-box input:focus {
-        /* 聚焦时边框颜色 */
-        border-color: #00bfff; /* 浅蓝色或天蓝色 */
-        box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
-}
-        /* 提示文字颜色调整 */
-.search-box input::placeholder {
-        color: #cccccc;
-}
-.icon-grid {
-        /* 将背景从纯白色 #fff 改为半透明的白色或深色 */
-        background: rgba(255, 255, 255, 0.2); /* 20% 透明度的白色 */
-        backdrop-filter: blur(5px);           /* (可选) 增加毛玻璃效果，让背景模糊 */
-        /* 保持原来的圆角和阴影 */
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
-}
-/* 媒体查询：当屏幕宽度小于 650 像素时应用以下样式 */
-@media (max-width: 650px) {
-    /* 1. 调整图标网格为 3 列 */
-    .icon-grid {
-        /* 将列数从 4 列改为 3 列，每列自动调整大小 */
-        grid-template-columns: repeat(3, 1fr); 
-        gap: 25px; /* 减小间距 */
-        padding: 20px; /* 减小内边距 */
-        margin-top: 20px;
-    }
-    /* 2. 调整图标容器和图片大小 */
-    .icon-box {
-        width: 70px; /* 减小容器大小 */
-        height: 70px; 
-    }
-    /* 3. 调整图标名称字体大小 */
-    .icon-name {
-        font-size: 0.8em; /* 减小字体 */
-    }
-    /* 4. 减小主标题和口号的字体大小 */
-    .header h1 {
-        font-size: 1.8em;
-    }
-    .header .slogan {
-        font-size: 1em;
-    }
-}
-/* 媒体查询：应用于移动设备 */
-@media (max-width: 650px) {
-    /* ... (上面网格代码) ... */
-    /* 调整搜索框宽度，使其不超过屏幕宽度的 90% */
-    .search-box input {
-        width: 90%; 
-        max-width: 400px; /* 确保在平板上也不会太宽 */
-        padding: 12px 20px;
-        font-size: 0.9em;
-    }
-}
-/* 媒体查询：仅在大屏幕上保留复杂的悬停效果 */
-@media (min-width: 651px) {
-    .icon-link:hover {
-        /* 保留你喜欢的悬停效果，例如： */
-        transform: translateY(-8px) scale(1.05);
-        box-shadow: 0 5px 15px rgba(0, 191, 255, 0.4); 
-    }
-}
-/* 统一移除手机上可能出现的蓝色点击轮廓 */
-.icon-link:focus, .icon-link:active {
-    outline: none;
-}
-    </style>
+        /* 手机端适配 */
+        @media (max-width: 650px) {
+            .icon-grid {
+                grid-template-columns: repeat(3, 1fr); 
+                gap: 20px;
+                padding: 20px;
+                width: 90%;
+            }
+            .icon-box {
+                width: 60px;
+                height: 60px; 
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+
+        /* 电脑端悬停特效 */
+        @media (min-width: 651px) {
+            .icon-link:hover {
+                transform: translateY(-8px) scale(1.05);
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="header">
-        <h1>中转站</h1>
-        
-        <form class="search-box" action="https://www.bing.com/s" method="get" target="_blank">
-            <input type="text" name="wd" placeholder="bing..." required>
-        </form>
-    </div>
+    <div class="header">
+        <h1>中转站</h1>
+        <form class="search-box" action="https://www.bing.com/search" method="get" target="_blank">
+            <input type="text" name="q" placeholder="Bing 搜索..." required>
+        </form>
+    </div>
 
-    <div class="icon-grid">
-        
-        <a href="http://affk10.v6.army:5160" class="icon-link" target="_blank">
-    <div class="icon-box"> 
-        <img src="img\bot控制台.png"  style="width: 100%; height: 100%; border-radius: 15px;">
-    </div>
-    <span class="icon-name">bot控制台</span>
-        </a>
+    <div class="icon-grid">
+        <a href=":5160" class="icon-link dynamic-link" target="_blank">
+            <div class="icon-box"><img src="img/bot控制台.png" alt="bot"></div>
+            <span class="icon-name">bot控制台</span>
+        </a>
 
-        <a href="http://affk10.v6.army:7890" class="icon-link" target="_blank">
-    <div class="icon-box"> 
-        <img src="img/ab.png" style="width: 100%; height: 100%; border-radius: 15px;">
-    </div>
-    <span class="icon-name">ab</span>
-        </a>
+        <a href=":7890" class="icon-link dynamic-link" target="_blank">
+            <div class="icon-box"><img src="img/ab.png" alt="ab"></div>
+            <span class="icon-name">ab</span>
+        </a>
 
-        <a href="http://affk10.v6.army:808" class="icon-link" target="_blank">
-    <div class="icon-box"> 
-        <img src="img\qbittorrent32.png"  style="width: 100%; height: 100%; border-radius: 15px;">
-    </div>
-    <span class="icon-name">qb</span>
-        </a>
+        <a href=":808" class="icon-link dynamic-link" target="_blank">
+            <div class="icon-box"><img src="img/qbittorrent32.png" alt="qb"></div>
+            <span class="icon-name">qb</span>
+        </a>
 
-        <a href="http://affk10.v6.army:9898" class="icon-link" target="_blank">
-    <div class="icon-box"> 
-        <img src="img\bt反吸血.png"  style="width: 100%; height: 100%; border-radius: 15px;">
-    </div>
-    <span class="icon-name">bt反吸血</span>
-        </a>
+        <a href=":9898" class="icon-link dynamic-link" target="_blank">
+            <div class="icon-box"><img src="img/bt反吸血.png" alt="bt"></div>
+            <span class="icon-name">bt反吸血</span>
+        </a>
 
-        <a href="http://affk10.v6.army:5212" class="icon-link" target="_blank">
-    <div class="icon-box"> 
-        <img src="img\网盘.png"  style="width: 100%; height: 100%; border-radius: 15px;">
-    </div>
-    <span class="icon-name">网盘</span>
-        </a>
+        <a href=":5212" class="icon-link dynamic-link" target="_blank">
+            <div class="icon-box"><img src="img/网盘.png" alt="网盘"></div>
+            <span class="icon-name">网盘</span>
+        </a>
 
-        <a href="http://affk10.v6.army:3002" class="icon-link" target="_blank">
-    <div class="icon-box"> 
-        <img src="img\测速.png"  style="width: 100%; height: 100%; border-radius: 15px;">
-    </div>
-    <span class="icon-name">测速</span>
-        </a>
+        <a href=":3002" class="icon-link dynamic-link" target="_blank">
+            <div class="icon-box"><img src="img/测速.png" alt="测速"></div>
+            <span class="icon-name">测速</span>
+        </a>
 
-        <a href="http://affk10.v6.army:8096" class="icon-link" target="_blank">
-    <div class="icon-box"> 
-        <img src="img\emby.png"  style="width: 100%; height: 100%; border-radius: 15px;">
-    </div>
-    <span class="icon-name">emby</span>
-        </a>
-        
+        <a href=":8096" class="icon-link dynamic-link" target="_blank">
+            <div class="icon-box"><img src="img/emby.png" alt="emby"></div>
+            <span class="icon-name">emby</span>
+        </a>
+    </div>
+    
+    <script>
+        const apiurl = "https://raspy-bread-ced5.zhaofujie0513.workers.dev";
 
-    </div>
+        async function getLatestAddr() {
+            try {
+                const response = await fetch(apiurl + "?t=" + new Date().getTime());
+                const data = await response.json();
+                
+                if (!data.addr || data.addr.includes("未更新")) {
+                    console.log("Worker 尚未收到 Lucky 的地址更新");
+                    return;
+                }
+
+                const host = "http://" + data.addr; 
+                console.log("获取到最新地址:", host);
+
+                document.querySelectorAll('.dynamic-link').forEach(link => {
+                    const port = link.getAttribute('href'); 
+                    if (!port.startsWith('http')) {
+                        link.href = host + port;
+                    }
+                });
+            } catch (err) {
+                console.error("获取地址失败:", err);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', getLatestAddr);
+    </script>
 </body>
-
 </html>
