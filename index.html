@@ -129,7 +129,57 @@
                 transform: translateY(-8px) scale(1.05);
             }
         }
-    </style>
+    <style>
+    body {
+        background: #222 url('img/wallpaper.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding-top: 50px;
+    }
+    .header h1 { font-size: 2.5rem; margin-bottom: 20px; }
+    .search-box input {
+        width: 400px; max-width: 80vw;
+        padding: 12px 20px;
+        border-radius: 25px;
+        border: 1px solid rgba(255,255,255,0.3);
+        background: rgba(0,0,0,0.5);
+        color: white;
+        margin-bottom: 40px;
+    }
+    .icon-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 100px);
+        justify-content: center;
+        gap: 20px;
+        width: 90%;
+        max-width: 600px;
+        background: rgba(255,255,255,0.1);
+        padding: 30px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+    }
+    .icon-link {
+        text-decoration: none; color: white;
+        display: flex; flex-direction: column; align-items: center;
+    }
+    .icon-box {
+        width: 60px; height: 60px;
+        border-radius: 12px;
+        overflow: hidden; /* 关键：切掉溢出的图片内容 */
+        margin-bottom: 8px;
+        background: #444;
+    }
+    .icon-box img {
+        width: 100%; height: 100%;
+        object-fit: cover; /* 关键：防止图片变成巨大圆圈 */
+    }
+    .icon-name { font-size: 0.8rem; }
+</style>
 </head>
 <body>
     <div class="header">
